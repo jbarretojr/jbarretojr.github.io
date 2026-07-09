@@ -1,136 +1,542 @@
-<div align="center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Barreto — Senior Full Stack &amp; Mobile Engineer</title>
+<meta name="description" content="Senior Software Engineer with 8+ years building fintech, edtech and lawtech systems at scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e17;
+    --surface:#111828;
+    --surface-2:#161f33;
+    --border:#232d42;
+    --text:#e7ecf6;
+    --text-dim:#8b96ab;
+    --text-faint:#5b667d;
+    --accent:#4fd1c5;
+    --accent-dim:#2a5f5a;
+    --amber:#f0b429;
+    --red:#ef5350;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
 
-# Hi, I'm José Barreto! 👋
+  *{margin:0;padding:0;box-sizing:border-box;}
 
-### Software Engineer | 8+ years building products for Fintech, Edtech & Lawtech
+  html{scroll-behavior:smooth;}
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=2E9EF7&center=true&vCenter=true&width=600&lines=Senior+Full+Stack+%26+Mobile+Developer;Flutter+%7C+React+%7C+Angular+%7C+NestJS+%7C+Laravel;8%2B+years+of+experience+%7C+700k%2B+users+impacted;Always+learning+something+new+%F0%9F%9A%80" alt="Typing SVG" />
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
 
-<br>
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(79,209,197,0.08), transparent),
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size:auto, 48px 48px, 48px 48px;
+    background-position:0 0, -1px -1px, -1px -1px;
+  }
 
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josebarretojr/)
-[![Gmail](https://img.shields.io/badge/-Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jbarretosantosjr@gmail.com)
-[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--accent); color:#04120f;}
 
-</div>
+  /* ---------- Layout helpers ---------- */
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+  section{padding:100px 0;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:16px; height:1px;
+    background:var(--accent);
+    display:inline-block;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-size:clamp(26px, 4vw, 34px);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin-bottom:40px;
+    color:var(--text);
+  }
 
----
+  /* ---------- Nav ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0;
+    z-index:100;
+    backdrop-filter:blur(10px);
+    background:rgba(10,14,23,0.75);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:var(--font-mono);
+    font-size:14px;
+    font-weight:600;
+    color:var(--text);
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{
+    0%,100%{opacity:1; transform:scale(1);}
+    50%{opacity:0.55; transform:scale(0.85);}
+  }
+  .nav-links{display:flex; gap:32px; font-size:13.5px; color:var(--text-dim);}
+  .nav-links a{transition:color .2s ease;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-links{font-family:var(--font-mono);}
+  @media (max-width:640px){ .nav-links{display:none;} }
 
-## 🧭 About Me
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:180px 0 100px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .status-badge{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--accent);
+    border:1px solid var(--accent-dim);
+    background:rgba(79,209,197,0.06);
+    padding:6px 12px;
+    border-radius:100px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:28px;
+    letter-spacing:0.04em;
+  }
+  .status-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;}
 
-I'm a Software Engineer with **8+ years of experience**, working on solutions for **fintech, edtech, and lawtech**. I've been responsible for applications serving **more than 700,000 users**, always with a focus on **performance, security, and scalability**.
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(42px, 7vw, 72px);
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    max-width:780px;
+  }
+  .hero h1 .fade{
+    background:linear-gradient(90deg, var(--text), var(--text-dim));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.role{
+    font-family:var(--font-mono);
+    color:var(--accent);
+    font-size:clamp(15px,2vw,18px);
+    margin-top:18px;
+  }
+  .hero p.summary{
+    color:var(--text-dim);
+    font-size:16.5px;
+    max-width:600px;
+    margin-top:20px;
+  }
+  .hero .cta-row{
+    display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--font-mono);
+    font-size:13.5px;
+    padding:12px 20px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:all .2s ease;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#04120f;
+    border-color:var(--accent);
+    font-weight:600;
+  }
+  .btn-primary:hover{background:#67ddd2; transform:translateY(-1px);}
+  .btn-ghost{color:var(--text-dim); border-color:var(--border);}
+  .btn-ghost:hover{color:var(--text); border-color:var(--text-faint);}
 
-- 🔭 Currently leading development of an educational app with **700k+ active users** at **GRAN**
-- 🌱 Pursuing a **Postgraduate degree in Artificial Intelligence** (UTFPR)
-- 💳 Implemented full banking integrations: **PIX, TED, Boleto, mPOS**
-- ⚙️ Experienced in software architecture, microservices, and DDD best practices
-- 📫 Reach me at: **jbarretosantosjr@gmail.com**
+  /* ---------- Stats dashboard ---------- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    margin-top:64px;
+    width:100%;
+  }
+  .stat{
+    background:var(--surface);
+    padding:22px 20px;
+  }
+  .stat .num{
+    font-family:var(--font-mono);
+    font-size:clamp(22px,3vw,30px);
+    font-weight:600;
+    color:var(--text);
+  }
+  .stat .num span{color:var(--accent);}
+  .stat .label{
+    font-size:12px;
+    color:var(--text-faint);
+    margin-top:6px;
+    letter-spacing:0.03em;
+  }
+  @media (max-width:640px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+  }
 
----
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:56px;
+  }
+  .about-grid p{color:var(--text-dim); font-size:15.5px; margin-bottom:16px;}
+  .about-grid strong{color:var(--text); font-weight:600;}
+  .checklist{list-style:none;}
+  .checklist li{
+    display:flex; gap:12px;
+    font-size:14.5px;
+    color:var(--text-dim);
+    padding:12px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .tag{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--accent);
+    background:rgba(79,209,197,0.08);
+    border:1px solid var(--accent-dim);
+    padding:2px 7px;
+    border-radius:4px;
+    height:fit-content;
+    white-space:nowrap;
+  }
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
 
-## 🛠️ Stack & Tools
+  /* ---------- Stack ---------- */
+  .stack-group{margin-bottom:28px;}
+  .stack-group .cat{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:12px;
+  }
+  .pills{display:flex; flex-wrap:wrap; gap:8px;}
+  .pill{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-dim);
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:7px 13px;
+    border-radius:6px;
+    transition:all .2s ease;
+  }
+  .pill:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-2px);}
 
-<div align="center">
+  /* ---------- Experience (deploy log) ---------- */
+  .log{border-left:1px solid var(--border); margin-left:6px;}
+  .entry{
+    position:relative;
+    padding:0 0 44px 32px;
+  }
+  .entry:last-child{padding-bottom:0;}
+  .entry::before{
+    content:'';
+    position:absolute;
+    left:-5.5px; top:4px;
+    width:10px; height:10px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--accent);
+  }
+  .entry.current::before{background:var(--accent); box-shadow:0 0 0 4px rgba(79,209,197,0.15);}
+  .entry .meta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--accent);
+    margin-bottom:6px;
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+  }
+  .entry .meta .period{color:var(--text-faint);}
+  .entry h3{
+    font-family:var(--font-display);
+    font-size:19px;
+    font-weight:600;
+    color:var(--text);
+    margin-bottom:4px;
+  }
+  .entry h3 .co{color:var(--text-dim); font-weight:400;}
+  .entry ul{list-style:none; margin-top:10px;}
+  .entry ul li{
+    color:var(--text-dim);
+    font-size:14.5px;
+    padding-left:18px;
+    position:relative;
+    margin-bottom:6px;
+  }
+  .entry ul li::before{
+    content:'↳';
+    position:absolute; left:0; color:var(--text-faint);
+  }
 
-**Languages**
-<br>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="45" alt="JavaScript"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" height="45" alt="TypeScript"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" height="45" alt="Java"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" height="45" alt="Kotlin"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" height="45" alt="PHP"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" height="45" alt="Python"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg" height="45" alt="Dart"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" height="45" alt="C++"/>
+  /* ---------- Education ---------- */
+  .edu-list{display:grid; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden;}
+  .edu-item{background:var(--surface); padding:20px 24px; display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;}
+  .edu-item h4{font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text);}
+  .edu-item .school{color:var(--text-dim); font-size:13.5px; margin-top:3px;}
+  .edu-item .year{font-family:var(--font-mono); font-size:13px; color:var(--text-faint); white-space:nowrap;}
 
-<br><br>
+  /* ---------- Contact ---------- */
+  .contact-box{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:56px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .contact-box::before{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 0%, rgba(79,209,197,0.12), transparent 60%);
+    pointer-events:none;
+  }
+  .contact-box h2{margin-bottom:14px;}
+  .contact-box p{color:var(--text-dim); max-width:440px; margin:0 auto 32px;}
+  .contact-btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
 
-**Frameworks & Libraries**
-<br>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" height="45" alt="React"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" height="45" alt="Flutter"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg" height="45" alt="Angular"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg" height="45" alt="Vue"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-original.svg" height="45" alt="NestJS"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-original.svg" height="45" alt="Laravel"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" height="45" alt="Go"/>
+  footer{
+    text-align:center;
+    padding:40px 0;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+  }
 
-<br><br>
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
 
-**Databases**
-<br>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" height="45" alt="PostgreSQL"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" height="45" alt="MySQL"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" height="45" alt="MongoDB"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" height="45" alt="Redis"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" height="45" alt="DynamoDB/AWS"/>
+<header>
+  <nav class="wrap">
+    <div class="brand"><span class="dot"></span>jose.barreto</div>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#stack">stack</a>
+      <a href="#experience">experience</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+</header>
 
-<br><br>
+<main class="wrap">
 
-**DevOps, Cloud & Observability**
-<br>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" height="45" alt="Docker"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" height="45" alt="AWS"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" height="45" alt="Terraform"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" height="45" alt="Linux"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" height="45" alt="Git"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" height="45" alt="Grafana"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kibana/kibana-original.svg" height="45" alt="Kibana"/>
+  <section class="hero">
+    <div class="status-badge"><span class="dot"></span>AVAILABLE FOR NEW OPPORTUNITIES</div>
+    <h1>José Barreto<br><span class="fade">Senior Software Engineer</span></h1>
+    <p class="role">// full stack &amp; mobile — fintech · edtech · lawtech</p>
+    <p class="summary">I design and ship systems that handle real money, real students and real legal cases — 8+ years turning complex requirements into products that stay fast, secure and online.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:jbarretosantosjr@gmail.com">Email me →</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/josebarretojr/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
 
-</div>
+    <div class="stats reveal">
+      <div class="stat"><div class="num"><span>8+</span></div><div class="label">YEARS EXPERIENCE</div></div>
+      <div class="stat"><div class="num"><span>700k+</span></div><div class="label">USERS SERVED</div></div>
+      <div class="stat"><div class="num"><span>3</span></div><div class="label">INDUSTRIES SHIPPED</div></div>
+      <div class="stat"><div class="num"><span>15+</span></div><div class="label">LANGUAGES &amp; FRAMEWORKS</div></div>
+    </div>
+  </section>
 
----
+  <section id="about">
+    <div class="eyebrow">01 · about</div>
+    <h2>Built for systems that can't go down</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I'm a Software Engineer with <strong>8+ years of experience</strong> across fintech, edtech and lawtech — the kind of products where a bug isn't just annoying, it's someone's tuition, a legal deadline, or their money.</p>
+        <p>I've led the architecture behind an app used by <strong>700,000+ active users</strong>, wired up banking rails like PIX, TED, Boleto and mPOS from scratch, and spent as much time in Terraform and Datadog as I have in React and Flutter.</p>
+        <p>Currently deepening my toolkit with a <strong>postgraduate degree in Artificial Intelligence</strong>, while leading full stack development at GRAN.</p>
+      </div>
+      <ul class="checklist reveal">
+        <li><span class="tag">NOW</span> Senior Full Stack Developer @ GRAN, leading a 700k-user edtech app</li>
+        <li><span class="tag">CORE</span> Software architecture, microservices, performance optimization</li>
+        <li><span class="tag">DOMAIN</span> Payment integrations &amp; security best practices</li>
+        <li><span class="tag">PROCESS</span> Agile/Scrum, Domain-Driven Design</li>
+      </ul>
+    </div>
+  </section>
 
-## 💼 Work Experience
+  <section id="stack">
+    <div class="eyebrow">02 · stack</div>
+    <h2>Tools I reach for</h2>
 
-```text
-2022 — Present    Senior Full Stack Developer @ GRAN (Edtech)
-                  ↳ Educational app with 700k+ active users
-                  ↳ Scalable architecture with Flutter, Angular, and Laravel
+    <div class="stack-group reveal">
+      <div class="cat">Languages</div>
+      <div class="pills">
+        <span class="pill">JavaScript</span><span class="pill">TypeScript</span><span class="pill">Java</span>
+        <span class="pill">Kotlin</span><span class="pill">PHP</span><span class="pill">Python</span>
+        <span class="pill">Dart</span><span class="pill">C / C++</span>
+      </div>
+    </div>
 
-2020 — 2021       Full Stack & Mobile Developer @ Serveloja (Fintech)
-                  ↳ Digital account and payments app
-                  ↳ Banking integrations: mPOS, PIX, TED, Boleto
+    <div class="stack-group reveal">
+      <div class="cat">Frameworks</div>
+      <div class="pills">
+        <span class="pill">React</span><span class="pill">Flutter</span><span class="pill">Angular</span>
+        <span class="pill">Vue</span><span class="pill">NestJS</span><span class="pill">Fastify</span>
+        <span class="pill">Go</span><span class="pill">Laravel</span>
+      </div>
+    </div>
 
-2018 — 2021       Full Stack & Mobile Developer (Freelance)
-                  ↳ Delbank (Fintech) — mobile banking app built from scratch
-                  ↳ Calculaw (Lawtech) — automated legal calculation system
-                  ↳ IOHCARE (Healthtech) — medical records management
-                  ↳ ARAH (ERP) — business management modules
-                  ↳ CI/CD pipelines and AWS infrastructure
+    <div class="stack-group reveal">
+      <div class="cat">Data</div>
+      <div class="pills">
+        <span class="pill">PostgreSQL</span><span class="pill">MySQL</span><span class="pill">MongoDB</span>
+        <span class="pill">Redis</span><span class="pill">DynamoDB</span>
+      </div>
+    </div>
 
-2017 — 2018       Project Advisor @ Quark's Up
-                  ↳ Technological innovation in Electronic Engineering
-```
+    <div class="stack-group reveal">
+      <div class="cat">Infra &amp; Observability</div>
+      <div class="pills">
+        <span class="pill">AWS (Lambda, S3, EC2, RDS, SQS)</span><span class="pill">Docker</span>
+        <span class="pill">Terraform</span><span class="pill">CI/CD</span><span class="pill">Datadog</span>
+        <span class="pill">Grafana</span><span class="pill">Kibana</span>
+      </div>
+    </div>
+  </section>
 
----
+  <section id="experience">
+    <div class="eyebrow">03 · experience</div>
+    <h2>Deploy history</h2>
 
-## 🎓 Education
+    <div class="log">
+      <div class="entry current reveal">
+        <div class="meta"><span class="period">2022 — present</span></div>
+        <h3>Senior Full Stack Developer <span class="co">@ GRAN · Edtech</span></h3>
+        <ul>
+          <li>Leading development of an educational app with 700k+ active users</li>
+          <li>Architecting scalable solutions with Flutter, Angular and Laravel</li>
+          <li>Collaborating with cross-functional teams under agile methodologies</li>
+        </ul>
+      </div>
 
-- 🎓 **Postgraduate degree in Artificial Intelligence** — UTFPR, Cornélio Procópio (2025)
-- 🎓 **Associate Degree in Systems Analysis and Development** — Estácio, Brasília (2022)
-- 🎓 **Bachelor's Degree in Electronic Engineering** — UTFPR, Campo Mourão (2015)
+      <div class="entry reveal">
+        <div class="meta"><span class="period">2020 — 2021</span></div>
+        <h3>Full Stack &amp; Mobile Developer <span class="co">@ Serveloja · Fintech</span></h3>
+        <ul>
+          <li>Built the digital account and payments application</li>
+          <li>Implemented banking API integrations: mPOS, PIX, TED, Boleto</li>
+        </ul>
+      </div>
 
----
+      <div class="entry reveal">
+        <div class="meta"><span class="period">2018 — 2021</span></div>
+        <h3>Full Stack &amp; Mobile Developer <span class="co">· Freelance</span></h3>
+        <ul>
+          <li>Delbank (Fintech) — mobile banking app built from scratch</li>
+          <li>Calculaw (Lawtech) — automated legal calculation system</li>
+          <li>IOHCARE (Healthtech) — medical records management</li>
+          <li>ARAH (ERP) — business management modules</li>
+          <li>CI/CD pipelines and AWS infrastructure for several projects</li>
+        </ul>
+      </div>
 
-## 🚀 Core Skills
+      <div class="entry reveal">
+        <div class="meta"><span class="period">2017 — 2018</span></div>
+        <h3>Project Advisor <span class="co">@ Quark's Up</span></h3>
+        <ul>
+          <li>Technological innovation projects in Electronic Engineering</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-| Area | Highlights |
-|---|---|
-| **Technical Leadership** | Software architecture, Microservices, Performance optimization |
-| **Full Stack** | React, Flutter, Angular, Vue, NestJS, Fastify, Go, Laravel |
-| **DevOps & Cloud** | AWS (Lambda, S3, EC2, RDS, SQS), Docker, IaC, CI/CD |
-| **Data** | PostgreSQL, MySQL, MongoDB, Redis, DynamoDB |
-| **Observability** | Datadog, Grafana, Kibana |
-| **Other** | Payment integrations, Security best practices, Agile/Scrum, DDD |
+  <section id="education">
+    <div class="eyebrow">04 · education</div>
+    <h2>Education</h2>
+    <div class="edu-list reveal">
+      <div class="edu-item">
+        <div><h4>Postgraduate in Artificial Intelligence</h4><div class="school">UTFPR — Cornélio Procópio</div></div>
+        <div class="year">2025</div>
+      </div>
+      <div class="edu-item">
+        <div><h4>Associate Degree, Systems Analysis &amp; Development</h4><div class="school">Estácio — Brasília</div></div>
+        <div class="year">2022</div>
+      </div>
+      <div class="edu-item">
+        <div><h4>B.Eng. in Electronic Engineering</h4><div class="school">UTFPR — Campo Mourão</div></div>
+        <div class="year">2015</div>
+      </div>
+    </div>
+  </section>
 
----
+  <section id="contact">
+    <div class="contact-box reveal">
+      <div class="eyebrow" style="justify-content:center;">05 · contact</div>
+      <h2>Let's build something reliable</h2>
+      <p>Open to senior full stack and mobile roles — especially where correctness, performance and scale actually matter.</p>
+      <div class="contact-btns">
+        <a class="btn btn-primary" href="mailto:jbarretosantosjr@gmail.com">jbarretosantosjr@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/josebarretojr/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </section>
 
-<div align="center">
+</main>
 
-### 📫 Let's connect
+<footer>© 2026 José Barreto — built with care, deployed on GitHub Pages.</footer>
 
-[![LinkedIn](https://img.shields.io/badge/-Connect%20on%20LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josebarretojr/)
-[![Gmail](https://img.shields.io/badge/-Send%20an%20Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jbarretosantosjr@gmail.com)
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
 
-</div>
+</body>
+</html>
